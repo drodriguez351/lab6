@@ -17,15 +17,18 @@ def encode(password):
 while True:
 
     # display menu
-    print("1. Encode\n2. Decode\n3. Exit")
+    print("Menu\n-------------\n1. Encode\n2. Decode\n3. Exit")
     print("")
 
-    option = int(input("Please choose an option from the menu: "))
+    option = int(input("Please enter an option: "))
+    encoded = ""
+    original = ""
 
     # utilize the encode function
     if option == 1:
-        print(encode(str(input("Please enter an 8 digit password: "))))
-        print("")
+        original = str(input("Please enter your password to encode: "))
+        encoded = encode(original)
+        print("Your password has been encoded and stored!\n")
 
     # terminate the while loop
     if option == 3:
