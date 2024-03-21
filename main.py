@@ -13,7 +13,18 @@ def encode(password):
         coded += str(check)
     # returns the resultant string
     return coded
-
+def decode (password):
+    decoded=""
+    for char in password:
+        valuecheck=int(char)
+        if valuecheck<=2:
+            valuecheck+=7
+        else:
+            valuecheck-=3
+        decoded+=str(valuecheck)
+    return decoded
+encoded = ""
+original = ""
 while True:
 
     # display menu
@@ -21,15 +32,15 @@ while True:
     print("")
 
     option = int(input("Please enter an option: "))
-    encoded = ""
-    original = ""
 
     # utilize the encode function
     if option == 1:
         original = str(input("Please enter your password to encode: "))
         encoded = encode(original)
         print("Your password has been encoded and stored!\n")
-
+    elif option == 2:
+        decoded=decode(encoded)
+        print("The encoded password is "+str(encoded)+", and the original password is "+str(decoded)+'.')
     # terminate the while loop
     if option == 3:
         break
